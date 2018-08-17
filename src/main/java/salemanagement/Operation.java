@@ -10,7 +10,8 @@ public class Operation {
     private Date date;
     private String salePoint;
     private Double sum;
-    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+    private SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+    private static String PATTERN_TO_REPORT = "%s %s %s";
 
     private static int SUM_MIN = 10000;
     private static int SUM_MAX = 100000;
@@ -21,8 +22,9 @@ public class Operation {
         this.date = createDate();
     }
 
-    public Double getSum() {
-        return sum;
+    @Override
+    public String toString() {
+        return String.format(PATTERN_TO_REPORT, format.format(date), salePoint, sum.toString());
     }
 
     private String createSalePoint(SalePoints salePoints) {
@@ -33,7 +35,7 @@ public class Operation {
         return (double) RandomUtils.getRandom(SUM_MIN, SUM_MAX);
     }
 
-    public Date createDate() {
+    private Date createDate() {
         Date dateNow = new Date();
         int yearNow = dateNow.getYear();
         return new Date(RandomUtils.getRandom(yearNow - 1, yearNow),
@@ -44,3 +46,4 @@ public class Operation {
                 RandomUtils.getRandom(0, 59));
     }
 }
+

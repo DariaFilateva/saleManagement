@@ -7,7 +7,6 @@
     <groupId>dariafilateva</groupId>
     <artifactId>saleManagement</artifactId>
     <version>1.0</version>
-
     <build>
         <plugins>
             <plugin>
@@ -49,5 +48,4 @@
         </dependency>
 
     </dependencies>
-
 </project>

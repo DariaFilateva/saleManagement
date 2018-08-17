@@ -13,6 +13,6 @@ public class Task1 {
         */
         SalePoints salePoints = new SalePoints(args[0]);
         SaleManagement saleManagement = new SaleManagement(salePoints, args[1], args[2]);
-
+        saleManagement.report();
     }
 }

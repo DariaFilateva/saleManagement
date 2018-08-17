@@ -1,5 +1,7 @@
 package salemanagement;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,16 +25,19 @@ public class SaleManagement {
         return operations;
     }
 
-    public String getPathReportFile() {
-        return pathReportFile;
-    }
-
-    public void setPathReportFile(String pathReportFile) {
-        this.pathReportFile = pathReportFile;
-    }
-
     public void report() {
-
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(pathReportFile);
+            int i = 1;
+            for (Operation operation : operations) {
+                writer.write(i + operation.toString() + System.getProperty("line.separator"));
+                i++;
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

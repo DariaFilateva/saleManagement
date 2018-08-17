@@ -11,6 +11,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.powermock:powermock-module-testng-common:1.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.testng:testng:6.9.10" level="project" />
+    <orderEntry type="library" name="Maven: org.powermock:powermock-reflect:1.6.5" level="project" />
     <orderEntry type="library" name="Maven: org.powermock:powermock-module-junit4:1.6.5" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: org.powermock:powermock-module-junit4-common:1.6.5" level="project" />
