@@ -31,7 +31,7 @@ public class SaleManagement {
             writer = new FileWriter(pathReportFile);
             int i = 1;
             for (Operation operation : operations) {
-                writer.write(i + operation.toString() + System.getProperty("line.separator"));
+                writer.write(i + " " + operation.toString() + System.getProperty("line.separator"));
                 i++;
             }
             writer.close();
