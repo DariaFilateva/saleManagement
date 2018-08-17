@@ -1,4 +1,4 @@
-package salemanagement;
+package task1.salemanagement;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -11,15 +11,13 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.*;
-
 public class SaleManagementTest {
 
     private SaleManagement saleManagement;
 
     @BeforeClass
     public void init() throws Exception {
-        SalePoints salePoints = new SalePoints("/Applications/saleManagement/src/main/resources/salepoints.txt");
+        SalePoints salePoints = new SalePoints("/Applications/saleManagement/src/task1.main/resources/salepoints.txt");
         saleManagement = new SaleManagement(salePoints, "20", "report.txt");
     }
 

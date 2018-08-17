@@ -1,4 +1,4 @@
-package salemanagement;
+package task1.salemanagement;
 
 import java.io.FileWriter;
 import java.io.IOException;

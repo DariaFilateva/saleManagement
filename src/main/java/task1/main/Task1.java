@@ -1,7 +1,7 @@
-package main;
+package task1.main;
 
-import salemanagement.SaleManagement;
-import salemanagement.SalePoints;
+import task1.salemanagement.SaleManagement;
+import task1.salemanagement.SalePoints;
 
 public class Task1 {
 

@@ -1,6 +1,6 @@
-package salemanagement;
+package task1.salemanagement;
 
-import randomUtils.RandomUtils;
+import task1.randomUtils.RandomUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
