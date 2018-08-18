@@ -2,6 +2,7 @@ package task1.salemanagement;
 
 import task1.randomUtils.RandomUtils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,8 +11,9 @@ public class Operation {
     private Date date;
     private String salePoint;
     private Double sum;
-    private SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+    private SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy-hh:mm");
     private static String PATTERN_TO_REPORT = "%s %s %s";
+    private static String DELIMITER = "%s %s %s";
 
     private static int SUM_MIN = 10000;
     private static int SUM_MAX = 100000;
@@ -20,6 +22,17 @@ public class Operation {
         this.sum = createSum();
         this.salePoint = createSalePoint(salePoints);
         this.date = createDate();
+    }
+
+    public Operation(String stringFromFile) {
+        String[] dataToOperation = stringFromFile.split(DELIMITER);
+        try {
+            this.date = format.parse(dataToOperation[1]);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        this.salePoint = dataToOperation[2];
+        this.sum = new Double(dataToOperation[3]);
     }
 
     @Override
