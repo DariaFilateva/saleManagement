@@ -17,7 +17,7 @@ public class SaleManagementTest {
 
     @BeforeClass
     public void init() throws Exception {
-        SalePoints salePoints = new SalePoints("/Applications/saleManagement/src/task1.main/resources/salepoints.txt");
+        SalePoints salePoints = new SalePoints("/Applications/saleManagement/src/main/resources/salepoints.txt");
         saleManagement = new SaleManagement(salePoints, "20", "report.txt");
     }
 

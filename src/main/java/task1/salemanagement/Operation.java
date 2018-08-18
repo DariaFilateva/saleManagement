@@ -13,7 +13,7 @@ public class Operation {
     private Double sum;
     private SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy-hh:mm");
     private static String PATTERN_TO_REPORT = "%s %s %s";
-    private static String DELIMITER = "%s %s %s";
+    private static String DELIMITER = " ";
 
     private static int SUM_MIN = 10000;
     private static int SUM_MAX = 100000;
@@ -38,6 +38,18 @@ public class Operation {
     @Override
     public String toString() {
         return String.format(PATTERN_TO_REPORT, format.format(date), salePoint, sum.toString());
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public String getSalePoint() {
+        return salePoint;
+    }
+
+    public Double getSum() {
+        return sum;
     }
 
     private String createSalePoint(SalePoints salePoints) {
