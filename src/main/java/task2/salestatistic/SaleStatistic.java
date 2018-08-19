@@ -47,13 +47,17 @@ public class SaleStatistic {
                 sortingOffices.put(operation.getSalePoint(), operation.getSum());
             }
         }
-        sortStatisticByOrder(sortingOffices);
-        return sortingOffices;
+        return sortStatisticByOrder(sortingOffices);
     }
 
-    private void sortStatisticByOrder(Map<String, Double> sortingOffices) {
-        List<Map.Entry<String,Double>> list = new ArrayList(sortingOffices.entrySet());
-       // list.sort();
+    private Map<String, Double> sortStatisticByOrder(Map<String, Double> sortingOffices) {
+        Map<String, Double> result = new LinkedHashMap<>();
+        List<Map.Entry<String, Double>> list = new ArrayList(sortingOffices.entrySet());
+        list.sort(Map.Entry.comparingByValue());
+        for (Map.Entry<String, Double> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        return result;
     }
 
     private void createStatisticByDate() {
