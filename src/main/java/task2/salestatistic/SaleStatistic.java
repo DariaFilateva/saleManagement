@@ -19,6 +19,7 @@ public class SaleStatistic {
     }
 
     public void report() {
+        // сделать общий метод печатанья в файл, в кач-ве пар-ра передам файл, мапу что печатать надо
         createStatisticByDate();
         createStatisticByOffice();
     }
