@@ -21,10 +21,10 @@ public class SaleStatistic {
     public void report() {
         // сделать общий метод печатанья в файл, в кач-ве пар-ра передам файл, мапу что печатать надо
         createStatisticByDate();
-        createStatisticByOffice();
+     //   createStatisticByOffice();
     }
 
-    private void createStatisticByOffice() {
+  /*  private void createStatisticByOffice() {
         Map<String, Double> sortingOffices = findCommonOffices();
         FileWriter writer = null;
         try {
@@ -36,9 +36,9 @@ public class SaleStatistic {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    private Map<String, Double> findCommonOffices() {
+ /*   private Map<String, Double> findCommonOffices() {
         Map<String, Double> sortingOffices = new HashMap<>();
         for (Operation operation : operations) {
             if (sortingOffices.containsKey(operation.getSalePoint())) {
@@ -49,9 +49,9 @@ public class SaleStatistic {
             }
         }
         return sortStatisticByOrder(sortingOffices);
-    }
+    }*/
 
-    private Map<String, Double> sortStatisticByOrder(Map<String, Double> sortingOffices) {
+   /* private Map<String, Double> sortStatisticByOrder(Map<String, Double> sortingOffices) {
         Map<String, Double> result = new LinkedHashMap<>();
         List<Map.Entry<String, Double>> list = new ArrayList(sortingOffices.entrySet());
         list.sort(Map.Entry.comparingByValue());
@@ -59,7 +59,7 @@ public class SaleStatistic {
             result.put(entry.getKey(), entry.getValue());
         }
         return result;
-    }
+    }*/
 
     private void createStatisticByDate() {
     }
