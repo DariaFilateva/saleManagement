@@ -9,13 +9,11 @@ import java.util.Map;
 
 public abstract class Statistic {
 
-
-    private static String DELIMITER = " ";
-
-
     protected ArrayList<Operation> operations;
     protected Map<?, ?> data;
     protected String fileToStatistic;
+
+    private static String DELIMITER = " ";
 
     public Statistic(ArrayList<Operation> operations, String fileToStatistic) {
         this.operations = operations;

@@ -43,5 +43,4 @@ public class StatisticTestData {
         operations.add(new Operation(new Date(), "SP4", new Double(20000)));
         return operations;
     }
-
 }

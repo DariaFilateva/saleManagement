@@ -2,8 +2,6 @@ package task2.statistic;
 
 import task1.salemanagement.Operation;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
 
 public class StatisticByOffice extends Statistic {
@@ -36,10 +34,5 @@ public class StatisticByOffice extends Statistic {
             result.put(entry.getKey(), entry.getValue());
         }
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return null;
     }
 }

@@ -8,9 +8,4 @@ public class RandomUtils {
          Random rnd = new Random();
         return min + rnd.nextInt(max - min + 1);
     }
-
-    public static long getRandomLong(int min, int max){
-        Random rnd = new Random(System.currentTimeMillis());
-        return min + rnd.nextInt(max - min + 1);
-    }
 }
