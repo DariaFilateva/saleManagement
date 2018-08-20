@@ -6,13 +6,13 @@ import java.util.*;
 
 public class StatisticByOffice extends Statistic {
 
-    public StatisticByOffice(ArrayList<Operation> operations) {
-        super(operations);
+    public StatisticByOffice(ArrayList<Operation> operations, String file) {
+        super(operations, file);
         data = createStatistic();
     }
 
     @Override
-    public Map<String, Double> createStatistic() {
+    protected Map<String, Double> createStatistic() {
         Map<String, Double> sortingOffices = new HashMap<>();
         for (Operation operation : operations) {
             if (sortingOffices.containsKey(operation.getSalePoint())) {
@@ -26,7 +26,7 @@ public class StatisticByOffice extends Statistic {
     }
 
     @Override
-    public Map sortStatistic() {
+    protected Map sortStatistic() {
         Map<String, Double> result = new LinkedHashMap<>();
         List<Map.Entry<String, Double>> list = new ArrayList(data.entrySet());
         list.sort(Map.Entry.comparingByValue());

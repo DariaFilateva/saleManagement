@@ -7,24 +7,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
-public abstract class Statistic{
+public abstract class Statistic {
 
-    Map<?,?> data;
+
     private static String DELIMITER = " ";
-    protected ArrayList<Operation> operations;
 
-    public Statistic(ArrayList<Operation> operations) {
+
+    protected ArrayList<Operation> operations;
+    protected Map<?, ?> data;
+    protected String fileToStatistic;
+
+    public Statistic(ArrayList<Operation> operations, String fileToStatistic) {
         this.operations = operations;
+        this.fileToStatistic = fileToStatistic;
     }
 
-    public abstract Map<?, ?> createStatistic();
+    protected abstract Map<?, ?> createStatistic();
 
-    public abstract Map<?, ?> sortStatistic();
+    protected abstract Map<?, ?> sortStatistic();
 
-    public void print(String file) {
+    public void print() {
+        this.sortStatistic();
         FileWriter writer = null;
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(fileToStatistic);
             for (Map.Entry<?, ?> entry : data.entrySet()) {
                 writer.write(entry.getKey() + DELIMITER + entry.getValue() + System.getProperty("line.separator"));
             }
