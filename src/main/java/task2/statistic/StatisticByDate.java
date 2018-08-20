@@ -11,7 +11,6 @@ import java.util.*;
 public class StatisticByDate extends Statistic {
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    private SimpleDateFormat formatForPrint = new SimpleDateFormat("yyyy-MM-dd");
 
     public StatisticByDate(ArrayList<Operation> operations, String file) {
         super(operations, file);
@@ -25,8 +24,6 @@ public class StatisticByDate extends Statistic {
             Date operationDateWithoutTime = null;
             try {
                 operationDateWithoutTime = dateFormat.parse(dateFormat.format(operation.getDate()));
-                // DateUtils.truncate(new Date(), java.util.Calendar.DAY_OF_MONTH)
-                // Date
             } catch (ParseException e) {
                 e.printStackTrace();
             }

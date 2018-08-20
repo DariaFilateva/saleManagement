@@ -24,6 +24,12 @@ public class Operation {
         this.date = createDate();
     }
 
+    public Operation(Date date, String salePoint, Double sum) {
+        this.date = date;
+        this.salePoint = salePoint;
+        this.sum = sum;
+    }
+
     public Operation(String stringFromFile) {
         String[] dataToOperation = stringFromFile.split(DELIMITER);
         try {

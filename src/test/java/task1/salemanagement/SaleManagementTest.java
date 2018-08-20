@@ -39,6 +39,4 @@ public class SaleManagementTest {
 
         Assert.assertEquals(report.size(), 20);
     }
-
-
 }

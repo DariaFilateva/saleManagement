@@ -10,7 +10,7 @@ public class OperationTest {
 
     @BeforeClass
     public void init() throws Exception {
-        salePoints = new SalePoints("/Applications/saleManagement/src/task1.main/resources/salepoints.txt");
+        salePoints = new SalePoints("/Applications/saleManagement/src/main/resources/salepoints.txt");
     }
 
 

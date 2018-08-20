@@ -39,4 +39,8 @@ public abstract class Statistic {
             e.printStackTrace();
         }
     }
+
+    public Map<?, ?> getData() {
+        return data;
+    }
 }
