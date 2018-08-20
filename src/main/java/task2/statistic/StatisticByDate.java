@@ -2,10 +2,16 @@ package task2.statistic;
 
 import task1.salemanagement.Operation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 public class StatisticByDate extends Statistic {
 
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat formatForPrint = new SimpleDateFormat("yyyy-MM-dd");
 
     public StatisticByDate(ArrayList<Operation> operations, String file) {
         super(operations, file);
@@ -14,31 +20,38 @@ public class StatisticByDate extends Statistic {
 
     @Override
     protected Map<Date, Double> createStatistic() {
-        Map<Date, Double> sortingOffices = new HashMap<>();
+        Map<Date, Double> sortingDate = new HashMap<>();
         for (Operation operation : operations) {
-            if (sortingOffices.containsKey(operation.getDate())) {
-                Double newSum = sortingOffices.get(operation.getSalePoint()) + operation.getSum();
-                sortingOffices.put(operation.getDate(), newSum);
+            Date operationDateWithoutTime = null;
+            try {
+                operationDateWithoutTime = dateFormat.parse(dateFormat.format(operation.getDate()));
+                // DateUtils.truncate(new Date(), java.util.Calendar.DAY_OF_MONTH)
+                // Date
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            if (sortingDate.containsKey(operationDateWithoutTime)) {
+                Double newSum = sortingDate.get(operationDateWithoutTime) + operation.getSum();
+                sortingDate.put(operationDateWithoutTime, newSum);
             } else {
-                sortingOffices.put(operation.getDate(), operation.getSum());
+                sortingDate.put(operationDateWithoutTime, operation.getSum());
             }
         }
-        return sortingOffices;
+        return sortingDate;
     }
 
     @Override
     protected Map sortStatistic() {
-        Map<String, Double> result = new LinkedHashMap<>();
-        List<Map.Entry<String, Double>> list = new ArrayList(data.entrySet());
+        Map<LocalDate, Double> result = new LinkedHashMap<>();
+        List<Map.Entry<Date, Double>> list = new ArrayList(data.entrySet());
         list.sort(Map.Entry.comparingByKey());
-        for (Map.Entry<String, Double> entry : list) {
-            result.put(entry.getKey(), entry.getValue());
+        for (Map.Entry<Date, Double> entry : list) {
+            result.put(dateRemoveTime(entry.getKey()), entry.getValue());
         }
         return result;
     }
 
-    @Override
-    public String toString() {
-        return null;
+    private LocalDate dateRemoveTime(Date date) {
+       return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 }

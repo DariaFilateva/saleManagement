@@ -2,6 +2,8 @@ package task2.statistic;
 
 import task1.salemanagement.Operation;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class StatisticByOffice extends Statistic {

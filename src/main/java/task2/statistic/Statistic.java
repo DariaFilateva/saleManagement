@@ -27,7 +27,7 @@ public abstract class Statistic {
     protected abstract Map<?, ?> sortStatistic();
 
     public void print() {
-        this.sortStatistic();
+        data = this.sortStatistic();
         FileWriter writer = null;
         try {
             writer = new FileWriter(fileToStatistic);
